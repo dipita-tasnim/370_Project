@@ -1,5 +1,5 @@
 <?php
-    require_once("connect.php");
+    require("login_check.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,7 @@
 </head>
 <body>
     <h1>Create an Account</h1>
-    <form action="candidateORemployer.php" method="post">
+    <form action="create_acc_info.php" method="post">
         <input type="text" name="email" placeholder="Email">
         <br>
         <input type="text" name="username" placeholder="Username">
@@ -19,5 +19,6 @@
         <br>
         <input type="submit" name="submit" value="submit">
     </form>
+
 </body>
 </html>
