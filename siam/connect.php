@@ -8,8 +8,5 @@
 
     if(!$conn) {
         die("Connection Failed: " . mysqli_connect_error());
-    } else {
-        header("Location: homepage.html");
-        exit();
     }
 ?>
