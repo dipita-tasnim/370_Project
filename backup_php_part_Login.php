@@ -1,3 +1,4 @@
+
 <?php
 $servername = "localhost";
 $username = "root";
@@ -34,6 +35,65 @@ if(isset($_POST['username']) && isset($_POST['password'])){
         echo "Wrong username or password";
     }
 }
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- for company_profile -->
+<?php
+// Database connection details
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "jobsite";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+session_start(); // Start the session
+
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $sql = "SELECT * FROM login_company WHERE username = ? AND password = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $username, $password);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        // Set session variable
+        $_SESSION['username'] = $username;
+        header("Location: company_profile.php"); // Redirect to profile page
+        exit();
+    } else {
+        echo "Wrong username or password";
+    }
+
+    $stmt->close();
+}
+$conn->close();
 ?>
 
 

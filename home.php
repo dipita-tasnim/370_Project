@@ -13,13 +13,13 @@
   </head>
   <body>
     <header>
-      <nav>
+    <nav>
         <div class="nav_logo">
-          <h1><a href="index.php">JOBSITE</a></h1>
+          <h1><a href="index.php">XYZ SCHOOL</a></h1>
         </div>
         <ul class="nav_link">
-          <li><a href="show_students.php">CANDIDATE</a></li>
-          <li><a href="#">COMPANY</a></li>
+          <li><a href="show_students.php">Candidate</a></li>
+          <li><a href="#">Company</a></li>
         </ul>
       </nav>
     </header>
