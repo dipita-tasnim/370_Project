@@ -1,0 +1,36 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.job-listing {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.job-title {
+    color: #333;
+}
+
+.job-description {
+    margin-top: 10px;
+}
+
+.rating form {
+    margin-top: 15px;
+}
+
+.rating select {
+    padding: 5px;
+}
+
+.rating input[type="submit"] {
+    padding: 5px 10px;
+}
