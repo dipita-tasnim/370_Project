@@ -9,13 +9,22 @@
             font-family: Arial, sans-serif;
             background-color: #0e0e45;
             padding: 50px;
+            margin: 0;
+        }
+        header {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
         }
         .form-container {
             background-color: rgba(174, 177, 176 );
             padding: 20px;
             border-radius: 5px;
             max-width: 500px;
-            margin: auto;
+            margin: 100px auto;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .form-container h2 {
@@ -47,6 +56,7 @@
     </style>
 </head>
 <body>
+    <header>JOBSITE</header>
     <div class="form-container">
         <h2>Create Company Profile</h2>
         <form action="company.php" method="POST">
