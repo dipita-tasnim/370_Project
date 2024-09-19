@@ -12,7 +12,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM jobsite WHERE id = "; // Adjust the query as needed
+$sql = "SELECT job_id,title,location,required_skill,required_experience,salary,posted_date * FROM job"; // getting the info from job table
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
