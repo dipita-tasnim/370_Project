@@ -1,6 +1,3 @@
-/* Project modified by M. Shafiul Alam
-Added Insertion and Deletion Operation + Redesigned UI
-Original project was created by Faisal Bin Ashraf Sir */
 
 * {
     margin: 0;
@@ -15,7 +12,6 @@ Original project was created by Faisal Bin Ashraf Sir */
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
-    /* background-image: url("../img/background.jpg"); */
     background-color: #0e0e45;
     background-size: cover;
     background-position: center;
@@ -123,7 +119,7 @@ Original project was created by Faisal Bin Ashraf Sir */
     background-color: rgb(26, 26, 26);
   }
   
-  /* .students {
+.students {
     max-width: 800px;
     width: 100%;
     margin: auto;
@@ -134,7 +130,7 @@ Original project was created by Faisal Bin Ashraf Sir */
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
+  } 
   
   .students h1 {
     color: black;
@@ -187,41 +183,14 @@ Original project was created by Faisal Bin Ashraf Sir */
   .btn:hover {
     background: #f5f5f5;
     text-decoration: none;
-  } */
+  } 
   
 
 
   
   
-  /* Centering the logo (JOBSITE) */
-  header {
-    display: flex;
-    justify-content: center; /* Centers the logo horizontally */
-    align-items: center;
-    padding: 20px;
-    margin-bottom: 30px; /* Space between the logo and login box */
-  }
   
-  .nav_logo h1 {
-    margin: 0;
-    font-size: 2em;
-  }
-  
-  /* Adjusting the login box positioning */
-  .login {
-    position: absolute; /* Absolute positioning to move it upwards */
-    top: 20%; /* Move login box closer to the top (adjust as needed) */
-    left: 50%;
-    transform: translateX(-50%); /* Center horizontally */
-  }
-  
-  .login_box {
-    padding: 20px;
-    background-color: rgb(183, 181, 239);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
+
   
   
   

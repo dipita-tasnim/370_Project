@@ -14,7 +14,7 @@
         <br>
         <input type="int" name="phone" placeholder="Phone">
         <br>
-        <input type="text" name="skill" placeholder="Skill">
+        <input type="text" name="skills" placeholder="Skills">
         <br>    
         <input type="text" name="experience" placeholder="Experience">
         <br>

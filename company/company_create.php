@@ -39,7 +39,7 @@
             margin-bottom: 5px;
         }
         .form-group input, .form-group select {
-            width: 100%;
+            width: 95%; 
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 3px;
@@ -59,15 +59,13 @@
     <header>JOBSITE</header>
     <div class="form-container">
         <h2>Create Company Profile</h2>
-        <form action="company.php" method="POST">
+        <form action="company_create.php" method="POST">
+        
             <div class="form-group">
                 <label for="name">Company Name</label>
                 <input type="text" id="name" name="name" required>
             </div>
-            <div class="form-group">
-                <label for="email">Email</label> <!-- Added -->
-                <input type="email" id="email" name="email" required> <!-- Added -->
-            </div>
+
             <div class="form-group">
                 <label for="industry">Industry</label>
                 <select id="industry" name="industry" required>
@@ -93,55 +91,31 @@
 
 
 
-
 <?php
-// Database connection details
-$servername = "localhost"; // or 127.0.0.1 if running locally
-$username = "root";        // adjust if using a different MySQL user
-$password = "";            // set the password if there is one
-$dbname = "jobsite";       // the name of the database in your dump
+    session_start();
+    require_once("connect.php");
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
-// Check if form data has been submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Collect and sanitize form data
-    $name = isset($_POST['name']) ? trim($_POST['name']) : null;
-    $email = isset($_POST['email']) ? trim($_POST['email']) : null; // Added
-    $industry = isset($_POST['industry']) ? trim($_POST['industry']) : null;
-    $location = isset($_POST['location']) ? trim($_POST['location']) : null;
+if(isset($_POST['name'])  && isset($_POST['industry']) 
+        && isset($_POST['location']) ){
+            
+                $name = $_POST['name'];
+                $industry = $_POST['industry'];
+                $location = $_POST['location'];
+              
+                $sql = "INSERT INTO company (user_id, name, industry, location) 
+                    VALUES ('$user_id', '$name', '$industry', '$location')";
 
-    // Validate form data
-    if (empty($name) || empty($email) || empty($industry) || empty($location)) { // Updated
-        echo "All fields are required.";
-        exit();
-    }
+                $result = mysqli_query($conn, $sql);
 
-    // Prepare the SQL statement
-    $sql = "INSERT INTO company (name, email, industry, location) VALUES (?, ?, ?, ?)"; // Updated
-    $stmt = $conn->prepare($sql);
-    if ($stmt === false) {
-        die("Prepare failed: " . $conn->error);
-    }
+                if($result){
+                    $_SESSION['user_id'] = $user_id;
+                    header("Location: company_profile.php");
+                }
+                else {
+                    echo "Error: " . mysqli_error($conn);
+                }
+            }
 
-    // Bind the parameters to the SQL query
-    $stmt->bind_param("ssss", $name, $email, $industry, $location); // Updated
-
-    // Execute the query and check if it was successful
-    if ($stmt->execute()) {
-        echo "Company profile created successfully!";
-    } else {
-        echo "Error: " . $stmt->error;
-    }
-
-    // Close the statement and connection
-    $stmt->close();
-    $conn->close();
-}
 ?>
