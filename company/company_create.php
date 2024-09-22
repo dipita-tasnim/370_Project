@@ -60,13 +60,21 @@
     <div class="form-container">
         <h2>Create Company Profile</h2>
         <form action="company_create.php" method="POST">
-        
-            <div class="form-group">
-                <label for="name">Company Name</label>
-                <input type="text" id="name" name="name" required>
-            </div>
 
-            <div class="form-group">
+        <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="name">Company Name</label>
+            <input type="text" id="name" name="company" required>
+        </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" required>
+        </div>
+           <div class="form-group">
                 <label for="industry">Industry</label>
                 <select id="industry" name="industry" required>
                     <option value="">Select Industry</option>
@@ -82,6 +90,10 @@
                 <input type="text" id="location" name="location" required>
             </div>
             <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Submit">
             </div>
         </form>
@@ -92,25 +104,21 @@
 
 
 <?php
-    session_start();
-    require_once("connect.php");
+    require_once ("connect.php");
 
-
-
-if(isset($_POST['name'])  && isset($_POST['industry']) 
-        && isset($_POST['location']) ){
-            
+    if(isset($_POST['name']) && isset($_POST['company']) && isset($_POST['email']) 
+        && isset($_POST['industry']) && isset($_POST['location']) 
+            && isset($_POST['password'])){
                 $name = $_POST['name'];
+                $company = $_POST['company'];
+                $email = $_POST['email'];
                 $industry = $_POST['industry'];
                 $location = $_POST['location'];
-              
-                $sql = "INSERT INTO company (user_id, name, industry, location) 
-                    VALUES ('$user_id', '$name', '$industry', '$location')";
-
+                $password = $_POST['password'];
+                $sql = "INSERT INTO company (name, company, email, industry, location, password)
+                        VALUES('$name', '$company', '$email', '$industry', '$location', '$password')";
                 $result = mysqli_query($conn, $sql);
-
                 if($result){
-                    $_SESSION['user_id'] = $user_id;
                     header("Location: company_profile.php");
                 }
                 else {

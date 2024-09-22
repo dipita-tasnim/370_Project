@@ -20,7 +20,7 @@
             <input type="submit" value="LOGIN" name="login">
         </form>
         <button class="create_acc_candidate" onclick="location.href='create_acc_candidate.php'">Create Account as a CANDIDATE</button> 
-        <button class="create_acc_employer" onclick="location.href='create_acc_employer.php'">Create Account as an EMPLOYER</button>
+        <button class="create_acc_employer" onclick="location.href='../company/company_create.php'">Create Account as an EMPLOYER</button>
     </div>
 </body>
 </html>
