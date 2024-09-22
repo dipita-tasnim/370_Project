@@ -120,7 +120,7 @@
                 $result = mysqli_query($conn, $sql);
                 if($result){
                     $_SESSION['name'] = $name;
-                    header("Location: homepage.php");
+                    header("Location: company_profile.php");
                 }
                 else {
                     echo "Error: " . mysqli_error($conn);

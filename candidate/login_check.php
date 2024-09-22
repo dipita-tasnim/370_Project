@@ -18,12 +18,10 @@
         }
         else{
             if($_POST['employer']){
-                $company_id = mysqli_query($conn, "SELECT company_id FROM company WHERE name = '$name' AND password = '$password'");
-                $_SESSION['company_id'] = $company_id;
-                $sql = "SELECT * FROM company WHERE name = '$name' AND password = '$password'";
-                $result = mysqli_query($conn, $sql);
-
-                if(mysqli_num_rows($result) > 0){
+                $res = mysqli_query($conn, "SELECT company_id FROM company WHERE name = '$name' AND password = '$password'");
+                $row = mysqli_fetch_assoc($res);
+                $_SESSION['company_id'] = $row['company_id'];
+                if(mysqli_num_rows($res) > 0){
                     header("Location: ../company/company_profile.php");
                 }
                 else{
@@ -32,4 +30,3 @@
             }           
         }
     }
-?>
