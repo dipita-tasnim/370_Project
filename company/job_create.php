@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #0e0e45;
+            background-color: while;
             padding: 50px;
             margin: 0;
         }
@@ -65,6 +65,10 @@
                 <label for="title">Job Title</label>
                 <input type="text" id="title" name="title" required>
             </div>
+            <div class="form-group">
+                <label for="Description">Description</label>
+                <input type="text" id="Description" name="description" required>
+            </div>
 
             <div class="form-group">
                 <label for="location">Location</label>
@@ -83,6 +87,10 @@
                 <input type="text" id="required_experience" name="required_experience" required>
             </div>
             <div class="form-group">
+                <label for="posted_date">posted_date</label>
+                <input name="posted_date" placeholder="YYYY-MM-DD">
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Submit">
             </div>
         </form>
@@ -95,37 +103,29 @@
 <?php
     session_start();
     require_once("connect.php");
+
+    if(isset($_POST['title']) && isset($_POST['description']) && isset($_POST['location']) 
+        && isset($_POST['required_skill']) && isset($_POST['required_experience'])  
+            && isset($_POST['salary']) && isset($_POST['posted_date'])) {
+                $company_id = $_SESSION['company_id'];
+                $title = $_POST['title'];
+                $description = $_POST['description'];
+                $location = $_POST['location'];
+                $required_skill = $_POST['required_skill'];
+                $required_experience = $_POST['required_experience'];
+                $salary = $_POST['salary'];
+                $posted_date = $_POST['posted_date'];
+                $sql = "INSERT INTO job (company_id , title, description, location, required_skill, required_experience, salary, posted_date) 
+                        VALUES('$company_id', '$title', '$description', '$location', '$required_skill', '$required_experience', '$salary', '$posted_date')";
+                $result = mysqli_query($conn, $sql);
+                if($result){
+                    $_SESSION['name'] = $name;
+                    header("Location: homepage.php");
+                }
+                else {
+                    echo "Error: " . mysqli_error($conn);
+                }
+            }
+
+
 ?>
-
-<?php
-
-if(isset($_POST['title'])  && isset($_POST['location']) 
-        && isset($_POST['salary']) && isset($_POST['required_skill'])  && isset($_POST['required_experience']) ){
-            
-        $title = $_POST['title'];
-        $location = $_POST['location'];
-        $salary = $_POST['salary'];
-        $required_skill = $_POST['required_skill'];
-        $required_experience = $_POST['required_experience'];
-        
-        
-        if (isset($_SESSION['company_id'])) {
-            $company_id = $_SESSION['company_id'];
-
-            $sql = "INSERT INTO job (title, location, salary, required_skill, required_experience) 
-                    VALUES ('$title', '$location', '$salary', '$required_skill', '$required_experience')";
-
-                
-            $result = mysqli_query($conn, $sql);
-                
-            if($result){
-                $_SESSION['name'] = $name;
-                header("Location: candidate/homepage.php");
-            }
-            else {
-                echo "Error: " . mysqli_error($conn);
-            }
-        }
-
-
-}
