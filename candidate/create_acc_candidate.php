@@ -4,27 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jobsite</title>
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>Create an Account</h1>
-    <form action="create_acc_candidate.php" method="post">
-        <input type="text" name="name" placeholder="Name">
-        <br>
-        <input type="text" name="email" placeholder="Email">
-        <br>
-        <input type="text" name="phone" placeholder="Phone">
-        <br>
-        <input type="text" name="skills" placeholder="Skills">
-        <br>
-        <input type="text" name="experience" placeholder="Experience">
-        <br>
-        <input type="text" name="location" placeholder="Location">
-        <br>
-        <input type="password" name="password" placeholder="Password">
-        <br>
-        <input type="submit" value="Create Account">
-    </form>
-
+    <div class="container mt-5">
+        <div class="text-center"><h1>Create an Account</h1></div>
+        <form action="create_acc_candidate.php" method="post">
+            <div class="row mb-3">
+            <input type="text" name="name" placeholder="Name">
+            </div>
+            <div class="row mb-3">
+            <input type="text" name="email" placeholder="Email">
+            </div>
+            <div class="row mb-3">
+            <input type="text" name="phone" placeholder="Phone">
+            </div>
+            <div class="row mb-3">
+            <input type="text" name="skills" placeholder="Skills">
+            </div>
+            <div class="row mb-3">
+            <input type="text" name="experience" placeholder="Experience">
+            </div>
+            <div class="row mb-3">
+            <input type="text" name="location" placeholder="Location">
+            </div>
+            <div class="row mb-3">
+            <input type="password" name="password" placeholder="Password">
+            </div>
+            <div class="row mb-3">
+            <input type="submit" value="Create Account">
+            </div>
+        </form>
+    </div>
 </body>
 </html>
 
