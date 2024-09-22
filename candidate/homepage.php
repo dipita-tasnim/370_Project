@@ -10,6 +10,6 @@
     <title>Job Site 101</title>
 </head>
 <body>
-    <h1>Welcome to Job Site 101</h1>
+    <h1>Welcome to Job Site </h1>
 </body>
 </html>
