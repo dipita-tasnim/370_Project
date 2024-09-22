@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 22, 2024 at 06:12 PM
+-- Generation Time: Sep 22, 2024 at 09:35 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -67,7 +67,8 @@ CREATE TABLE `company` (
 
 INSERT INTO `company` (`company_id`, `name`, `company`, `email`, `industry`, `location`, `password`) VALUES
 (7, 'Siam', 'Thryve', 'thryve@gmail.com', 'clothing', 'Dhaka', 'thryve1234'),
-(8, 'Dipita', 'Arong', 'arong@gmail.com', 'clothing', 'Dhaka', 'arong1234');
+(8, 'Dipita', 'Arong', 'arong@gmail.com', 'clothing', 'Dhaka', 'arong1234'),
+(9, 'Angon', 'prime', 'Prime@gmail.com', 'manufacturing', 'USA', 'prime1234');
 
 -- --------------------------------------------------------
 
@@ -78,7 +79,6 @@ INSERT INTO `company` (`company_id`, `name`, `company`, `email`, `industry`, `lo
 CREATE TABLE `job` (
   `job_id` int(5) NOT NULL,
   `company_id` int(5) NOT NULL,
-  `candidate_id` int(5) NOT NULL,
   `title` varchar(50) NOT NULL,
   `description` varchar(1000) NOT NULL,
   `location` varchar(50) NOT NULL,
@@ -87,6 +87,14 @@ CREATE TABLE `job` (
   `salary` int(10) NOT NULL,
   `posted_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `job`
+--
+
+INSERT INTO `job` (`job_id`, `company_id`, `title`, `description`, `location`, `required_skill`, `required_experience`, `salary`, `posted_date`) VALUES
+(7, 9, 'it', 'gg', 'Dhaka', 'none', 'none', 200, '2024-08-12'),
+(8, 9, 'ok', 'ok', 'ok', 'ok', 'ok', 0, '2024-09-01');
 
 -- --------------------------------------------------------
 
@@ -124,8 +132,7 @@ ALTER TABLE `company`
 --
 ALTER TABLE `job`
   ADD PRIMARY KEY (`job_id`),
-  ADD KEY `company_id_fk` (`company_id`),
-  ADD KEY `candidate_id_fk` (`candidate_id`);
+  ADD KEY `company_id_fk` (`company_id`);
 
 --
 -- Indexes for table `job_application`
@@ -150,13 +157,13 @@ ALTER TABLE `candidate`
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `company_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `company_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `job`
 --
 ALTER TABLE `job`
-  MODIFY `job_id` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `job_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `job_application`
@@ -172,8 +179,7 @@ ALTER TABLE `job_application`
 -- Constraints for table `job`
 --
 ALTER TABLE `job`
-  ADD CONSTRAINT `job_ibfk_1` FOREIGN KEY (`company_id`) REFERENCES `company` (`company_id`),
-  ADD CONSTRAINT `job_ibfk_2` FOREIGN KEY (`candidate_id`) REFERENCES `candidate` (`candidate_id`);
+  ADD CONSTRAINT `job_ibfk_1` FOREIGN KEY (`company_id`) REFERENCES `company` (`company_id`);
 
 --
 -- Constraints for table `job_application`
