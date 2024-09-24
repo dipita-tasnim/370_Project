@@ -26,24 +26,28 @@
 
     // Process form submission
     if (isset($_POST['update_job'])) {
-        $title = mysqli_real_escape_string($conn, $_POST['title']);
-        $location = mysqli_real_escape_string($conn, $_POST['location']);
-        $salary = mysqli_real_escape_string($conn, $_POST['salary']);
-        $required_skill = mysqli_real_escape_string($conn, $_POST['required_skill']);
-        $required_experience = mysqli_real_escape_string($conn, $_POST['required_experience']);
+        $title = $_POST['title'];
+        $description = $_POST['description'];
+        $location = $_POST['location'];
+        $required_skill = $_POST['required_skill'];
+        $required_experience = $_POST['required_experience'];
+        $salary = $_POST['salary'];
+        $posted_date = $_POST['posted_date'];
 
         // Update job information
         $sql = "UPDATE job SET 
-                title = '$title', 
-                location = '$location', 
-                salary = '$salary', 
+                title = '$title',
+                description = '$description', 
+                location = '$location',  
                 required_skill = '$required_skill', 
-                required_experience = '$required_experience'
+                required_experience = '$required_experience',
+                salary = '$salary',
+                posted_date = '$posted_date',
                 WHERE job_id = '$job_id' AND company_id = '$company_id'";
 
         if (mysqli_query($conn, $sql)) {
             $_SESSION['success_message'] = "Job updated successfully!";
-            header("Location: homepage.php");
+            header("Location: joblist.php");
             exit();
         } else {
             echo "Error updating job: " . mysqli_error($conn);
@@ -63,14 +67,18 @@
     <form action="update_job.php?job_id=<?php echo $job_id; ?>" method="POST">
         <label>Title:</label>
         <input type="text" name="title" value="<?php echo $job['title']; ?>" required><br><br>
-        <label>Location:</label>
+        <label>Description:</label>
         <input type="text" name="location" value="<?php echo $job['location']; ?>" required><br><br>
-        <label>Salary:</label>
+        <label>Location:</label>
         <input type="text" name="salary" value="<?php echo $job['salary']; ?>" required><br><br>
         <label>Required Skill:</label>
         <input type="text" name="required_skill" value="<?php echo $job['required_skill']; ?>" required><br><br>
         <label>Required Experience:</label>
         <input type="text" name="required_experience" value="<?php echo $job['required_experience']; ?>" required><br><br>
+        <label>Salary:</label>
+        <input type="text" name="salary" value="<?php echo $job['salary']; ?>" required><br><br>
+        <label>Posted date:</label>
+        <input type="text" name="posted_date" value="<?php echo $job['posted_date']; ?>" required><br><br>
         <button type="submit" name="update_job">Update Job</button>
     </form>
 </body>
