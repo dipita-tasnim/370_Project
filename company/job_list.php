@@ -72,13 +72,29 @@ $jobs = mysqli_fetch_all($result, MYSQLI_ASSOC);
             text-align: center;
             text-decoration: none;
             font-weight: bold;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            
         }
 
 
         .update-job-button:hover {
             background-color: #218838;
         }
+        
+        .delete-job-button {
+            padding: 1px 5px;
+            /* Adjusted padding for better visibility */
+            background-color: red;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .delete-job-button:hover {
+            background-color: #ff0000;
+           
+        }
+
 
         .company-info li span {
             font-weight: bold;
@@ -102,12 +118,13 @@ $jobs = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 echo "Required Experience: " . $job['required_experience'] . "<br>";
                 echo "Salary: " . $job['salary'] . "<br>";
                 echo "Posted Date: " . $job['posted_date'] . "<br><br>";
-                ?>
-                <div class="update-job-button-container"> 
-                    <a href="update_job.php" class="update-job-button">Update Job</a><br><br>
+            ?>
+                <div>
+                    <a href="job_update.php?job_id=<?php echo $job['job_id']; ?>" class="update-job-button">Update Job</a><br><br>
+                    <a href="job_delete.php?job_id=<?php echo $job['job_id']; ?>" class="delete-job-button">Delete Job</a><br><br>
                 </div>
 
-                <?php
+            <?php
             }
             ?>
         </ul>
@@ -116,11 +133,3 @@ $jobs = mysqli_fetch_all($result, MYSQLI_ASSOC);
 </body>
 
 </html>
-
-
-
-
-
-
-
-
