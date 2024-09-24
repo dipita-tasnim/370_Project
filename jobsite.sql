@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 22, 2024 at 09:35 PM
+-- Generation Time: Sep 25, 2024 at 01:17 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -35,15 +35,18 @@ CREATE TABLE `candidate` (
   `skills` varchar(200) NOT NULL,
   `experience` varchar(200) NOT NULL,
   `location` varchar(50) NOT NULL,
-  `password` varchar(20) NOT NULL
+  `password` varchar(20) NOT NULL,
+  `job_id` int(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `candidate`
 --
 
-INSERT INTO `candidate` (`candidate_id`, `name`, `email`, `phone`, `skills`, `experience`, `location`, `password`) VALUES
-(10, 'Siam', 'siam@gmail.com', 1789765678, 'Python, Java, PHP, SQL', 'none', 'Dhaka', 'siam1234');
+INSERT INTO `candidate` (`candidate_id`, `name`, `email`, `phone`, `skills`, `experience`, `location`, `password`, `job_id`) VALUES
+(10, 'Siam', 'siam@gmail.com', 1356453432, 'Python, Java, PHP, SQL', 'none', 'Dhaka', 'siam1234', 7),
+(11, 'sinka', 'sinka@gmail.com', 1898765643, 'Python', 'none', 'Dhaka', 'sinka1234', NULL),
+(13, 'aa', 'aa', 11, 'aa', 'aa', 'aa', 'aa', 8);
 
 -- --------------------------------------------------------
 
@@ -119,7 +122,8 @@ CREATE TABLE `job_application` (
 -- Indexes for table `candidate`
 --
 ALTER TABLE `candidate`
-  ADD PRIMARY KEY (`candidate_id`);
+  ADD PRIMARY KEY (`candidate_id`),
+  ADD KEY `job_id` (`job_id`);
 
 --
 -- Indexes for table `company`
@@ -151,7 +155,7 @@ ALTER TABLE `job_application`
 -- AUTO_INCREMENT for table `candidate`
 --
 ALTER TABLE `candidate`
-  MODIFY `candidate_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `candidate_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `company`
@@ -174,6 +178,12 @@ ALTER TABLE `job_application`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `candidate`
+--
+ALTER TABLE `candidate`
+  ADD CONSTRAINT `candidate_ibfk_1` FOREIGN KEY (`job_id`) REFERENCES `job` (`job_id`);
 
 --
 -- Constraints for table `job`
