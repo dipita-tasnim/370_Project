@@ -1,56 +1,94 @@
-
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+}
 
 body {
-	background: #D9D9D9;
+	background: rgb(255, 255, 255);
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	margin: 50px;
 
 }
 
-.bg {
-	width: 600px;
+
+.login{
+	width: 500px;
 	height: 500px;
-	flex-shrink: 0;
-	background: #FFF;
+	background-color: rgb(55, 212, 255);
 	display: flex;
 	flex-direction: column;
-	margin-top: 20px;
-
-
+	border-radius: 10px;
 }
 
-.welcome {
+.welcome{
 	display: flex;
 	justify-content: center;
-	padding-top: 1%;
-	font-size: 3rem;
+	font-size: 2.5rem;
+	margin: 10px;
+	padding: 20px;
 }
 
-.login_form {
-	width: 100%;
-	height: 50%;
+.login_form{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
-
 }
 
 .login_input{
-	width: 50%;
-	height: 100%;
+	width: 200px;
+	height: 40px;
 	border-radius: 10px;
-	background: #46f66a;
-	border-style: none ;
+	font-size: 1.3rem;
+
 }
 
-.input_lable{
-	font-size: 1.4rem;
+h3{
+	font-size: 1.7rem;
+	padding: 20px;
 }
 
-.login_btn{
-	font-size: 1.4rem;
-	margin-top: 30px;
+.checkbox{
+	font-size: 1.5rem;
+}
 
+input[type="checkbox"] {
+	width: 15px;
+	height: 15px;
+	margin: 10px;
+
+  }
+
+.login_button{
+	width: 100px;
+	height: 25px;
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
+	font-size: 1rem;
+}
+
+.create_acc{
+	display: flex;
+	justify-content: center;
+}
+.create_acc_candidate, .create_acc_employer{
+	width: 200px;
+	height: 50px;	
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
+	font-size: 1rem;
+	margin: 10px;
+}
+
+button{
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+input{
+	border: none;
+	outline: none;
 }
