@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once("rating/connection.php");
+    require_once("<candidate/connect.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,27 +13,21 @@
 <body>
     <div class="container my-5">
     <?php
-        $job_id = $_GET['job_id'];  // Assume job_id is passed via URL
+        $job_id = $_SESSION['job_id'];
         $sql = "SELECT * FROM job WHERE job_id = '$job_id'";
         $result = mysqli_query($conn, $sql);
         if ($row = mysqli_fetch_array($result)) {
     ?>
         <h1>Job Title: <?php echo $row["title"]; ?></h1>
-        <h5>Job Information</h5>
-        <table class="table">
-            <thead>
-                <tr>
-                    <td>Job ID <?php echo $row["job_id"]; ?> </td>
-                    <td>Description <?php echo $row["description"]; ?></td>
-                    <td>Location <?php echo $row["location"]; ?></td>
-                    <td>Required Skill <?php echo $row["required_skill"]; ?></td>
-                    <td>Required Experience<?php echo $row["required_experience"]; ?></td>
-                    <td>Salary <?php echo $row["salary"]; ?></td>
-                    <td>Posted Date <?php echo $row["posted_date"]; ?></td>
-                </tr>
-            </thead>
-
-        </table>
+        <h2>Job Information</h5>
+        <div class="job_info">
+        <p>Job Description: <?php echo $row["description"]; ?></p>
+        <p>Job Location: <?php echo $row["location"]; ?></p>
+        <p>Salary: <?php echo $row["salary"]; ?></p>
+        <p>Required Skill: <?php echo $row["required_skill"]; ?></p>
+        <p>Required Experience: <?php echo $row["required_experience"]; ?></p>
+        <p>Posted Date: <?php echo $row["posted_date"]; ?></p>
+        </div>
         
     <?php
         } else {
