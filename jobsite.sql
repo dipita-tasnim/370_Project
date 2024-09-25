@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2024 at 11:52 AM
+-- Generation Time: Sep 25, 2024 at 01:42 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -45,7 +45,8 @@ CREATE TABLE `candidate` (
 INSERT INTO `candidate` (`candidate_id`, `name`, `email`, `phone`, `skills`, `experience`, `location`, `password`) VALUES
 (10, 'Siam', 'siam@gmail.com', 1356453432, 'Python, Java, PHP, SQL', 'none', 'Dhaka', 'siam1234'),
 (11, 'sinka', 'sinka@gmail.com', 1898765643, 'Python', 'none', 'Dhaka', 'sinka1234'),
-(13, 'aa', 'aa', 11, 'aa', 'aa', 'aa', 'aa');
+(13, 'aa', 'aa', 11, 'aa', 'aa', 'aa', 'aa'),
+(19, 'saba', 'saba@gmail.com', 2147483647, 'C++, JAVA', '6 months', 'Dhaka', '12345');
 
 -- --------------------------------------------------------
 
@@ -108,8 +109,19 @@ INSERT INTO `job` (`job_id`, `company_id`, `title`, `description`, `location`, `
 CREATE TABLE `job_application` (
   `application_id` int(5) NOT NULL,
   `candidate_id` int(5) NOT NULL,
-  `job_id` int(5) NOT NULL
+  `job_id` int(5) NOT NULL,
+  `rating` int(3) DEFAULT NULL,
+  `comments` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `job_application`
+--
+
+INSERT INTO `job_application` (`application_id`, `candidate_id`, `job_id`, `rating`, `comments`) VALUES
+(1, 10, 8, 7, 'not bad'),
+(7, 10, 9, 5, 'good'),
+(8, 19, 11, 2, 'bad');
 
 --
 -- Indexes for dumped tables
@@ -150,7 +162,7 @@ ALTER TABLE `job_application`
 -- AUTO_INCREMENT for table `candidate`
 --
 ALTER TABLE `candidate`
-  MODIFY `candidate_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `candidate_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `company`
@@ -168,7 +180,7 @@ ALTER TABLE `job`
 -- AUTO_INCREMENT for table `job_application`
 --
 ALTER TABLE `job_application`
-  MODIFY `application_id` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
