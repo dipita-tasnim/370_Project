@@ -65,7 +65,8 @@
                                 <th>Required Experience</th>
                                 <th>Salary</th>
                                 <th>Posted Date</th>
-                                <th>Action</th>
+                                <th>Delete</th>
+                                <th>Compare</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -81,6 +82,10 @@
                                 <td><form action="job_delete.php" method="post">
                                     <input type="hidden" name="job_id" value="<?php echo $row["job_id"]; ?>">
                                     <input type="submit" value="Delete" >
+                                    </form></td>
+                                <td><form action="compare.php" method="post">
+                                <input type="hidden" name="job_id" value="<?php echo $row["job_id"]; ?>">
+                                <input type="submit" value="Compare" >
                                 </form></td>
                             </tr>
                         </tbody>
