@@ -27,7 +27,8 @@
                                 <th>Job Location</th>
                                 <th>Salary</th>
                                 <th>Posted Date</th>
-                                <th>Details</th>                                <th>Apply</th>
+                                <th>Details</th>                                    
+                                <th>Apply</th>
                                 <th>Rate</th>   
                             </tr>
                         </thead>
