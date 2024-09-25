@@ -116,23 +116,19 @@
             <ul>
 
                 <?php while($row = mysqli_fetch_array($result)){
-                    echo "Title: " . $row['title'] . "<br>";
-                    echo "Description: " . $row['description'] . "<br>";
-                    echo "Location: " . $row['location'] . "<br>";
-                    echo "Required_skill: " . $row['required_skill'] . "<br>";
-                    echo "Required_experience: " . $row['Required_experience'] . "<br>"
-                    echo "salary: " . $row['salary'] . "<br>"
-                
+                    ?>
+                    <p> <?echo "Title: " . $row['title'] .?> "<br>";
+                    <p> <?echo "Description: " . $row['description'] .?>  "<br>";
+                    <p> <?echo "Location: " . $row['location'] .?>  "<br>";
+                    <p> <?echo "Required_skill: " . $row['required_skill'] .?>  "<br>";
+                    <p> <?echo "Required_experience: " . $row['Required_experience'] .?>  "<br>";
+                    <p> <?echo "salary: " . $row['salary'] .?>  "<br>";
+                <?php
                 }
-
-             
-       
                 ?>
             </ul>
         </div>
-
     </body>
-
 </html>
         
 
