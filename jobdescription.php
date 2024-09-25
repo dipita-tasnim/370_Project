@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once("connection.php");
+    require_once("rating/connection.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
