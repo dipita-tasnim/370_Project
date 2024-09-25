@@ -26,7 +26,6 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>candidate_id</th>
                     <th>Email</th>
                     <th>Phone</th>
                     <th>Skills</th>
@@ -37,7 +36,6 @@
             <tbody>
         
             <tr>
-                <td><?php echo $row["candidate_id"]; ?></td>
                 <td><?php echo $row["email"]; ?></td>
                 <td><?php echo $row["phone"]; ?></td>
                 <td><?php echo $row["skills"]; ?></td>
@@ -59,6 +57,7 @@
                     <table class="table">
                         <thead>
                             <tr>
+                                <th>JOB_ID</th>
                                 <th>Job Title</th>
                                 <th>Job Description</th>
                                 <th>Job Location</th>
@@ -71,6 +70,7 @@
                         </thead>
                         <tbody>
                             <tr>
+                                <td><?php echo $row["job_id"]; ?></td>
                                 <td><?php echo $row["title"]; ?></td>
                                 <td><?php echo $row["description"]; ?></td>
                                 <td><?php echo $row["location"]; ?></td>
@@ -78,7 +78,10 @@
                                 <td><?php echo $row["required_experience"]; ?></td>
                                 <td><?php echo $row["salary"]; ?></td>
                                 <td><?php echo $row["posted_date"]; ?></td>
-                                <td>CANCEL JOB</td>
+                                <td><form action="job_delete.php" method="post">
+                                    <input type="hidden" name="job_id" value="<?php echo $row["job_id"]; ?>">
+                                    <input type="submit" value="Delete" >
+                                </form></td>
                             </tr>
                         </tbody>
                     </table>
