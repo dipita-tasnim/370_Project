@@ -13,7 +13,7 @@
 <body>
     <div class="container my-5">
         <h1>Welcome to Job Site </h1>
-        <button onclick="location.href='../candidate/candidate_profile_display.php'">User Profile</button>
+        <button onclick="location.href='../candidate/candidate_profile_display.php'">Profile</button>
         <button onclick="location.href='../candidate/index.php'">Logout</button>
         <h2>All The Available Jobs</h2>
             <?php
@@ -29,8 +29,7 @@
                                 <th>Job Location</th>
                                 <th>Salary</th>
                                 <th>Posted Date</th>
-                                <th>Details</th>                                    
-                                <th>Apply</th>
+                                <th>Details</th>                                <th>Apply</th>
                                 <th>Rate</th>   
                             </tr>
                         </thead>
@@ -40,7 +39,10 @@
                                 <td><?php echo $row["location"]; ?></td>
                                 <td><?php echo $row["salary"]; ?></td>
                                 <td><?php echo $row["posted_date"]; ?></td>
-                                <td><button onclick="location.href='../jobdescription.php'">Details</button></td>
+                                <td><form action="../jobdescription.php" method="post">
+                                    <input type="hidden" name="job_id" value="<?php echo $row["job_id"]; ?>">
+                                    <input type="submit" value="Details" >
+                                </form><</td>
                                 <td><form action="../candidate/apply_job.php" method="post">
                                     <input type="hidden" name="job_id" value="<?php echo $row["job_id"]; ?>">
                                     <input type="submit" value="Apply" >

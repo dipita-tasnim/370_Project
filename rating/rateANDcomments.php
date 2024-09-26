@@ -1,4 +1,3 @@
-
 <?php
     session_start();
     require_once("connect.php");
@@ -12,8 +11,10 @@
     $result = mysqli_query($conn, $sql);
     
     if($result){
-        header("Location: .php");
+        header("Location: homepage.php");
     }
     else {
         echo "Error: " . mysqli_error($conn);
     }
+
+    ?>

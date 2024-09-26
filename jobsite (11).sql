@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2024 at 10:01 AM
+-- Generation Time: Sep 26, 2024 at 05:06 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -46,9 +46,7 @@ INSERT INTO `candidate` (`candidate_id`, `name`, `email`, `phone`, `skills`, `ex
 (10, 'Siam', 'siam@gmail.com', 1356453432, 'Python, Java, PHP, SQL', 'none', 'Dhaka', 'siam1234'),
 (11, 'sinka', 'sinka@gmail.com', 1898765643, 'Python', 'none', 'Dhaka', 'sinka1234'),
 (13, 'aa', 'aa', 11, 'aa', 'aa', 'aa', 'aa'),
-(19, 'saba', 'saba@gmail.com', 2147483647, 'C++, JAVA', '6 months', 'Dhaka', '12345'),
-(20, 'siam sadman', 'siamsadman@gmail.com', 1916902840, 'Python, Javascript, Web Dev', '6 months', 'Dhaka', '123'),
-(21, 'Anngon', 'anngongg@gmail.com', 1851461767, 'Python, ', '1 month', 'gazipur', '1122');
+(19, 'saba', 'saba@gmail.com', 2147483647, 'C++, JAVA', '6 months', 'Dhaka', '12345');
 
 -- --------------------------------------------------------
 
@@ -71,10 +69,9 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`company_id`, `name`, `company`, `email`, `industry`, `location`, `password`) VALUES
-(2, 'Siam', 'Thryve', 'Thryve@gmail.com', 'manufacturing', 'Dhaka', '1234'),
-(3, 'dipita', 'Arong', 'arong@gmail.com', 'manufacturing', 'Dhaka', '1234'),
-(4, 'siam sadman', 'Average IT', 'AverageIT@gmail.com', 'IT', 'Tangail', '9988'),
-(5, 'Scyther', 'BracU IT', 'bracuit@gmail.com', 'IT', 'Dhaka', '1122');
+(2, 'Siam', 'Thryve', 'Thryve@gmail.com', 'IT', 'Dhaka', '1234'),
+(3, 'dipita', 'Arong', 'arong@gmail.com', 'Education', 'Dhaka', '1234'),
+(4, 'Angon', 'Prime', 'prime@gmail.com', 'finance', 'Gazipur', 'prime1234');
 
 -- --------------------------------------------------------
 
@@ -99,15 +96,12 @@ CREATE TABLE `job` (
 --
 
 INSERT INTO `job` (`job_id`, `company_id`, `title`, `description`, `location`, `required_skill`, `required_experience`, `salary`, `posted_date`) VALUES
-(8, 2, 'ok', 'ok', 'ok', 'ok', 'ok', 0, '2024-09-01'),
-(9, 2, 'modarator', 'no money only love', 'Dhaka', 'none', 'none', 500, '2024-01-01'),
-(10, 2, 'It assistant', 'A very courageous person to handle daily It related complains ', 'Rajshahi', 'none', 'none', 1000, '2024-02-02'),
-(11, 3, 'guard', 'protect ', 'Dhaka', 'strong', '5 years', 5, '2024-03-03'),
-(13, 4, 'IT Manager', 'Looking for someone who is excited to be a manager', 'Tangail', 'Fluent in Speaking ', '6 months', 20000, '2024-05-05'),
-(14, 4, 'Software Engineer ', 'Looking for a Software Engineer to develop and maintain software applications while ensuring performance. Collaborate with teams to create innovative solutions.', 'Chottogram', 'Python, Java, Rust', '3 years', 60000, '2024-01-01'),
-(15, 4, 'Jr. Software Engineer', 'Our company is looking for very hard worker team member.', 'Dhaka', 'java, php', 'none', 14000, '2024-02-05'),
-(16, 4, 'Executive It', 'You will driven the  it team as a leader to accomplish technology as per requirements of the company', 'Gazipur', 'communication skill,', '3 years of working experience', 10000, '2024-09-22'),
-(17, 5, 'Software Engineer', 'Applicants should be able to work in area of Bangladesh.S/he should be able to knowledge of modern authorization', 'Bangladesh', 'AJJAX,HTTP,JSON', '5 years', 25000, '2024-08-20');
+(9, 2, 'modarator', 'We are looking for a cooperative employee', 'Dhaka', 'none', 'none', 35000, '2024-01-01'),
+(10, 2, 'It assistant', 'A very courageous person to handle daily It related complains ', 'Rajshahi', 'none', 'none', 35000, '2024-02-02'),
+(13, 3, 'Senior Lecturer', 'We are looking for a cooperative and enthusiaste employee', 'Dhaka', 'leadership, communication skill', '4 years of working experience', 65000, '2024-06-27'),
+(14, 3, 'Junior Lecturer', 'We are looking for a cooperative and enthusiaste employee', 'Dhaka', 'leadership, communication skill', '1 year of working experience', 42000, '2024-08-15'),
+(15, 4, 'Accounting Officer', 'We are looking for a cooperative and enthusiaste employee', 'Gazipur', 'Financial reporting, budgeting', '3 years of working experience', 45000, '2024-09-24'),
+(16, 4, 'Financial Analyst', 'We are looking for a cooperative and enthusiaste employee', 'Gazipur', 'Build financial models, predict business scenarios', '1 year of working experience', 45000, '2024-06-14');
 
 -- --------------------------------------------------------
 
@@ -128,14 +122,7 @@ CREATE TABLE `job_application` (
 --
 
 INSERT INTO `job_application` (`application_id`, `candidate_id`, `job_id`, `rating`, `comments`) VALUES
-(1, 10, 8, 7, 'not bad'),
-(7, 10, 9, 5, 'good'),
-(8, 19, 11, 2, 'bad'),
-(17, 20, 14, 10, 'very good'),
-(19, 20, 9, NULL, NULL),
-(20, 21, 9, 7, 'not bad'),
-(21, 21, 13, NULL, NULL),
-(23, 20, 15, NULL, NULL);
+(7, 10, 9, 5, 'good');
 
 --
 -- Indexes for dumped tables
@@ -176,7 +163,7 @@ ALTER TABLE `job_application`
 -- AUTO_INCREMENT for table `candidate`
 --
 ALTER TABLE `candidate`
-  MODIFY `candidate_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `candidate_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `company`
@@ -194,7 +181,7 @@ ALTER TABLE `job`
 -- AUTO_INCREMENT for table `job_application`
 --
 ALTER TABLE `job_application`
-  MODIFY `application_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `application_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
