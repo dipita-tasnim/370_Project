@@ -103,10 +103,11 @@ if (isset($_GET['location'])) {
     $sql = "SELECT * FROM job WHERE location like '%$location%'";
 } elseif (isset($_GET['salary_min'])) {
     $min_salary = (int)$_GET['salary_min'];
-    // sql query string
-} elseif (isset($_GET['salary_max'])) {
+    $sql = "SELECT * FROM job WHERE salary >= $min_salary";
+}
+ elseif (isset($_GET['salary_max'])) {
     $max_salary = (int)$_GET['salary_max'];
-    // sql query string
+    $sql = "SELECT * FROM job WHERE salary_max <= $max_salary";
 } elseif (isset($location) && isset($min_salaty) && isset($max_salary)) {
     $location = $_GET['location'];
     $min_salary = (int)$_GET['salary_min'];
@@ -124,12 +125,12 @@ $result = mysqli_query($conn, $sql);
 
             <?php while ($row = mysqli_fetch_array($result)) {
             ?>
-                <p> <?php echo "Title: " . $row['title'] ?> <br>
-                <p> <?php echo "Description: " . $row['description'] ?> <br>
-                <p> <?php echo "Location: " . $row['location'] ?> <br>
-                <p> <?php echo "Required_skill: " . $row['required_skill'] ?> <br>
-                <p> <?php echo "Required_experience: " . $row['required_experience'] ?> <br>
-                <p> <?php echo "salary: " . $row['salary'] ?> <br><br><br>
+                <p> <?php echo "Title: <br>" . $row['title'] ?> <br>
+                <p> <?php echo "Description: <br>" . $row['description'] ?> <br>
+                <p> <?php echo "Location: <br>" . $row['location'] ?> <br>
+                <p> <?php echo "Required_skill: <br>" . $row['required_skill'] ?> <br>
+                <p> <?php echo "Required_experience: <br>" . $row['required_experience'] ?> <br>
+                <p> <?php echo "salary: <br>" . $row['salary'] ?> <br><br><br>
                 <?php
             }
                 ?>
