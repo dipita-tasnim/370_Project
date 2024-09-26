@@ -13,6 +13,8 @@
 <body>
     <div class="container my-5">
         <h1>Welcome to Job Site </h1>
+        <button onclick="location.href='../candidate/candidate_profile_display.php'">User Profile</button>
+        <button onclick="location.href='../candidate/index.php'">Logout</button>
         <h2>All The Available Jobs</h2>
             <?php
                 $sql = "SELECT * FROM job";
