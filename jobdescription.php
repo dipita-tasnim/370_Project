@@ -11,11 +11,16 @@
     <title>Job Description</title>
 </head>
 <body>
-    <div class="container my-5">
+    <div>
     <?php
-        $job_id = $_SESSION['job_id'];
+        $job_id = $_POST['job_id'];
         $sql = "SELECT * FROM job WHERE job_id = '$job_id'";
+        $sql_ratting = "SELECT * FROM job_application WHERE job_id = '$job_id'";
         $result = mysqli_query($conn, $sql);
+        $res_ratting = mysqli_query($conn, $sql_ratting);
+        $row_ratting = mysqli_fetch_array($res_ratting);
+        $rating = $row_ratting['rating'];
+        $comments = $row_ratting['comments'];
         if ($row = mysqli_fetch_array($result)) {
     ?>
         <h1>Job Title: <?php echo $row["title"]; ?></h1>
@@ -27,6 +32,8 @@
         <p>Required Skill: <?php echo $row["required_skill"]; ?></p>
         <p>Required Experience: <?php echo $row["required_experience"]; ?></p>
         <p>Posted Date: <?php echo $row["posted_date"]; ?></p>
+        <p>Rating: <?php echo $rating; ?></p>
+        <p>Comments: <?php echo $comments; ?></p>
         </div>
         
     <?php
