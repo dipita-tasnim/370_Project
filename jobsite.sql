@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2024 at 01:42 PM
+-- Generation Time: Sep 26, 2024 at 07:07 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -46,7 +46,8 @@ INSERT INTO `candidate` (`candidate_id`, `name`, `email`, `phone`, `skills`, `ex
 (10, 'Siam', 'siam@gmail.com', 1356453432, 'Python, Java, PHP, SQL', 'none', 'Dhaka', 'siam1234'),
 (11, 'sinka', 'sinka@gmail.com', 1898765643, 'Python', 'none', 'Dhaka', 'sinka1234'),
 (13, 'aa', 'aa', 11, 'aa', 'aa', 'aa', 'aa'),
-(19, 'saba', 'saba@gmail.com', 2147483647, 'C++, JAVA', '6 months', 'Dhaka', '12345');
+(19, 'saba', 'saba@gmail.com', 2147483647, 'C++, JAVA', '6 months', 'Dhaka', '12345'),
+(20, 'siam sadman', 'siamsadman@gmail.com', 1916902840, 'Python, Javascript, Web Dev', '6 months', 'Dhaka', '123');
 
 -- --------------------------------------------------------
 
@@ -70,7 +71,8 @@ CREATE TABLE `company` (
 
 INSERT INTO `company` (`company_id`, `name`, `company`, `email`, `industry`, `location`, `password`) VALUES
 (2, 'Siam', 'Thryve', 'Thryve@gmail.com', 'manufacturing', 'Dhaka', '1234'),
-(3, 'dipita', 'Arong', 'arong@gmail.com', 'manufacturing', 'Dhaka', '1234');
+(3, 'dipita', 'Arong', 'arong@gmail.com', 'manufacturing', 'Dhaka', '1234'),
+(4, 'siam sadman', 'Average IT', 'AverageIT@gmail.com', 'IT', 'Tangail', '9988');
 
 -- --------------------------------------------------------
 
@@ -98,7 +100,9 @@ INSERT INTO `job` (`job_id`, `company_id`, `title`, `description`, `location`, `
 (8, 2, 'ok', 'ok', 'ok', 'ok', 'ok', 0, '2024-09-01'),
 (9, 2, 'modarator', 'no money only love', 'Dhaka', 'none', 'none', 500, '2024-01-01'),
 (10, 2, 'It assistant', 'A very courageous person to handle daily It related complains ', 'Rajshahi', 'none', 'none', 1000, '2024-02-02'),
-(11, 3, 'guard', 'protect ', 'Dhaka', 'strong', '5 years', 5, '2024-03-03');
+(11, 3, 'guard', 'protect ', 'Dhaka', 'strong', '5 years', 5, '2024-03-03'),
+(13, 4, 'IT Manager', 'Looking for someone who is excited to be a manager', 'Tangail', 'Fluent in Speaking ', '6 months', 20000, '2024-05-05'),
+(14, 4, 'Software Engineer ', 'Looking for a Software Engineer to develop and maintain software applications while ensuring performance. Collaborate with teams to create innovative solutions.', 'Chottogram', 'Python, Java, Rust', '3 years', 60000, '2024-01-01');
 
 -- --------------------------------------------------------
 
@@ -121,7 +125,11 @@ CREATE TABLE `job_application` (
 INSERT INTO `job_application` (`application_id`, `candidate_id`, `job_id`, `rating`, `comments`) VALUES
 (1, 10, 8, 7, 'not bad'),
 (7, 10, 9, 5, 'good'),
-(8, 19, 11, 2, 'bad');
+(8, 19, 11, 2, 'bad'),
+(16, 20, 13, NULL, NULL),
+(17, 20, 14, NULL, NULL),
+(18, 20, 11, NULL, NULL),
+(19, 20, 9, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -162,25 +170,25 @@ ALTER TABLE `job_application`
 -- AUTO_INCREMENT for table `candidate`
 --
 ALTER TABLE `candidate`
-  MODIFY `candidate_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `candidate_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `company_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `company_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `job`
 --
 ALTER TABLE `job`
-  MODIFY `job_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `job_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `job_application`
 --
 ALTER TABLE `job_application`
-  MODIFY `application_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `application_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Constraints for dumped tables

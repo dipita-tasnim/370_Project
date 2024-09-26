@@ -27,7 +27,7 @@
             <thead>
                 <tr>
                     <th>Email</th>
-                    <th>Phone</th>
+                    <th>Phone(+880)</th>
                     <th>Skills</th>
                     <th>Experience</th>
                     <th>Location</th>
@@ -48,6 +48,12 @@
             </tbody>
         </table>
         <h1>Jobs That You Applied</h1>
+        <br>
+        <?php
+            $sql = "SELECT COUNT(job_id) FROM job_application WHERE candidate_id = '$candidate_id'";
+            $result = mysqli_query($conn, $sql);
+            echo "TOTAL JOBS APPLIED " . mysqli_fetch_array($result)[0] . "<br>";
+            ?>
         <div class="container my-5">
             <?php
                 $sql = "SELECT * FROM job WHERE job_id in (SELECT job_id FROM job_application WHERE candidate_id = '$candidate_id')";
@@ -57,7 +63,6 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>JOB_ID</th>
                                 <th>Job Title</th>
                                 <th>Job Description</th>
                                 <th>Job Location</th>
@@ -71,7 +76,6 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><?php echo $row["job_id"]; ?></td>
                                 <td><?php echo $row["title"]; ?></td>
                                 <td><?php echo $row["description"]; ?></td>
                                 <td><?php echo $row["location"]; ?></td>

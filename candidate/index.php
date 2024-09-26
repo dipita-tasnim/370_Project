@@ -11,9 +11,9 @@
         <div class="login">
             <h1 class="welcome">WELCOME</h1>
             <form class="login_form" action="login_check.php" method="POST">
-                <input class="login_input" type="text" name="name" placeholder=" Name">
+                <input class="login_input" type="text" name="name" placeholder=" Name" required>
                 <br>
-                <input class="login_input" type="password" name="password" placeholder=" Password">
+                <input class="login_input" type="password" name="password" placeholder=" Password" required>
                 <br>
                 <h3>Choose only one option</h6>
                 <div class="checkbox">
