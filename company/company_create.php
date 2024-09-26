@@ -133,7 +133,7 @@ if (
     $sql = "SELECT * FROM company WHERE email = '$email' or name = '$name'";
     $result = mysqli_query($conn, $sql);
 
-    if (mysqli_num_rows($result) > 0) { // Display error message. Should not craete acc with same name or email
+    if (mysqli_num_rows($result) > 0) { // Display error message. Should not create acc with same name or email
         echo "<script type='text/javascript'>alert('Name or Email already exists')</script>"; 
         exit();
     }
@@ -142,10 +142,9 @@ if (
                         VALUES('$name', '$company', '$email', '$industry', '$location', '$password')";
     $result = mysqli_query($conn, $sql);
 
-    $company_id = mysqli_insert_id($conn); // This function fetch the auto-incement ID of the inserted row.
+    $company_id = mysqli_insert_id($conn); // This function fetch the auto-increment ID of the inserted row.
     
     $_SESSION['company_id'] = $company_id;
-    // $_SESSION['logged_in_type'] = 'employer';
 
     header("Location: company_profile.php");
 }
